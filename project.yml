@@ -1,24 +1,24 @@
-name: Ejectify
+name: Ejectit
 options:
   bundleIdPrefix: com.alexwesterlund
   deploymentTarget:
     macOS: "13.0"
 targets:
-  Ejectify:
+  Ejectit:
     type: application
     platform: macOS
-    sources: Ejectify
+    sources: Ejectit
     info:
-      path: Ejectify/Info.plist
+      path: Ejectit/Info.plist
       properties:
         LSUIElement: YES
         NSPrincipalClass: NSApplication
         CFBundleVersion: "1"
         CFBundleShortVersionString: "1.0"
     entitlements:
-      path: Ejectify/Ejectify.entitlements
+      path: Ejectit/Ejectit.entitlements
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.alexwesterlund.Ejectify
+      PRODUCT_BUNDLE_IDENTIFIER: com.alexwesterlund.Ejectit
       SWIFT_VERSION: "5.9"
       MACOSX_DEPLOYMENT_TARGET: "13.0"
       CODE_SIGN_STYLE: Automatic

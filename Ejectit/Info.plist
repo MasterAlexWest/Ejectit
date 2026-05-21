@@ -22,5 +22,7 @@
 	<true/>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSRemovableVolumesUsageDescription</key>
+	<string>Ejectit needs access to your removable volumes so it can safely unmount them before the system or display sleeps, and remount them when you wake.</string>
 </dict>
 </plist>

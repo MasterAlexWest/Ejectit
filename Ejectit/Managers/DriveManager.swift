@@ -59,11 +59,13 @@ class DriveManager: ObservableObject {
     }
 
     func eject(_ volume: Volume) async {
-        await withCheckedContinuation { cont in
-            NSWorkspace.shared.unmountAndEjectDevice(at: volume.url) { _ in
-                cont.resume()
-            }
+        // Try a polite unmount first; fall back to `force` if a process (e.g. loginwindow
+        // holding a Spotlight/recent-files handle) dissents. Skip the polite attempt when
+        // the user has explicitly opted into forceUnmount.
+        if !Preferences.shared.forceUnmount {
+            if await runDiskUtil(["unmount", volume.url.path]) { return }
         }
+        _ = await runDiskUtil(["unmount", "force", volume.url.path])
     }
 
     // MARK: - Remount
@@ -127,11 +129,11 @@ class DriveManager: ObservableObject {
         observers.append(nc.addObserver(
             forName: NSWorkspace.didMountNotification,
             object: nil, queue: .main
-        ) { [weak self] _ in self?.refreshVolumes() })
+        ) { [weak self] _ in Task { @MainActor [weak self] in self?.refreshVolumes() } })
 
         observers.append(nc.addObserver(
             forName: NSWorkspace.didUnmountNotification,
             object: nil, queue: .main
-        ) { [weak self] _ in self?.refreshVolumes() })
+        ) { [weak self] _ in Task { @MainActor [weak self] in self?.refreshVolumes() } })
     }
 }

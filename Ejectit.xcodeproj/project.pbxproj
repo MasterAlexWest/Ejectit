@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4501EF56BAAA0FE69EC9DC7D /* DriveRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0240A46B5EFC49DA9AE1274 /* DriveRowView.swift */; };
-		48B127ACDA3AEEE6023D274A /* EjectifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290E55B3753A9721685BE3E5 /* EjectifyApp.swift */; };
+		48B127ACDA3AEEE6023D274A /* EjectitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290E55B3753A9721685BE3E5 /* EjectitApp.swift */; };
 		7A2548776291824D53E2D850 /* SleepWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE491235F8F40655561F3843 /* SleepWatcher.swift */; };
 		9538C2EF51E624DF67ACB1E3 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6366FB7CBF6808CA971B6753 /* Preferences.swift */; };
 		973658AA9BC951EBE3FB5772 /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = F117B0573F7E6672DF25361B /* Volume.swift */; };
@@ -17,12 +17,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1DB3B2FA0E3ED1B42065FDE3 /* Ejectify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ejectify.entitlements; sourceTree = "<group>"; };
-		290E55B3753A9721685BE3E5 /* EjectifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EjectifyApp.swift; sourceTree = "<group>"; };
+		1DB3B2FA0E3ED1B42065FDE3 /* Ejectit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ejectit.entitlements; sourceTree = "<group>"; };
+		290E55B3753A9721685BE3E5 /* EjectitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EjectitApp.swift; sourceTree = "<group>"; };
 		6366FB7CBF6808CA971B6753 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		8ABED98709934B40E0E65EFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9117965BDC9E2FA2EF70D448 /* DriveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveManager.swift; sourceTree = "<group>"; };
-		B38975156C56652282B86A9B /* Ejectify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ejectify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B38975156C56652282B86A9B /* Ejectit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ejectit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE1DE93042114DAC66EC7C5 /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
 		E0240A46B5EFC49DA9AE1274 /* DriveRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveRowView.swift; sourceTree = "<group>"; };
 		F117B0573F7E6672DF25361B /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		1C787E07A4B62EB6CA91C930 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B38975156C56652282B86A9B /* Ejectify.app */,
+				B38975156C56652282B86A9B /* Ejectit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,24 +64,24 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		5028E9F717FC6D6DF73B26E0 /* Ejectify */ = {
+		5028E9F717FC6D6DF73B26E0 /* Ejectit */ = {
 			isa = PBXGroup;
 			children = (
-				1DB3B2FA0E3ED1B42065FDE3 /* Ejectify.entitlements */,
-				290E55B3753A9721685BE3E5 /* EjectifyApp.swift */,
+				1DB3B2FA0E3ED1B42065FDE3 /* Ejectit.entitlements */,
+				290E55B3753A9721685BE3E5 /* EjectitApp.swift */,
 				8ABED98709934B40E0E65EFB /* Info.plist */,
 				6366FB7CBF6808CA971B6753 /* Preferences.swift */,
 				33EEE00121079328DF47AE33 /* Managers */,
 				0B0157A8CAF79031F41A8A79 /* Models */,
 				26BCA7D9713838FFA2A5C1BC /* Views */,
 			);
-			path = Ejectify;
+			path = Ejectit;
 			sourceTree = "<group>";
 		};
 		5546376B0F425C04A4A403C5 = {
 			isa = PBXGroup;
 			children = (
-				5028E9F717FC6D6DF73B26E0 /* Ejectify */,
+				5028E9F717FC6D6DF73B26E0 /* Ejectit */,
 				1C787E07A4B62EB6CA91C930 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,9 +89,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		392AE7D93E173B0699B0F7D6 /* Ejectify */ = {
+		392AE7D93E173B0699B0F7D6 /* Ejectit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 665A4B4CE0BBEAD126F3839C /* Build configuration list for PBXNativeTarget "Ejectify" */;
+			buildConfigurationList = 665A4B4CE0BBEAD126F3839C /* Build configuration list for PBXNativeTarget "Ejectit" */;
 			buildPhases = (
 				2A2B1EDFDC079ADA7507853A /* Sources */,
 			);
@@ -99,11 +99,11 @@
 			);
 			dependencies = (
 			);
-			name = Ejectify;
+			name = Ejectit;
 			packageProductDependencies = (
 			);
-			productName = Ejectify;
-			productReference = B38975156C56652282B86A9B /* Ejectify.app */;
+			productName = Ejectit;
+			productReference = B38975156C56652282B86A9B /* Ejectit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -120,7 +120,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 152A6D92410A57E89BA1ABF9 /* Build configuration list for PBXProject "Ejectify" */;
+			buildConfigurationList = 152A6D92410A57E89BA1ABF9 /* Build configuration list for PBXProject "Ejectit" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -134,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				392AE7D93E173B0699B0F7D6 /* Ejectify */,
+				392AE7D93E173B0699B0F7D6 /* Ejectit */,
 			);
 		};
 /* End PBXProject section */
@@ -146,7 +146,7 @@
 			files = (
 				9808475697B243FF83ECECD6 /* DriveManager.swift in Sources */,
 				4501EF56BAAA0FE69EC9DC7D /* DriveRowView.swift in Sources */,
-				48B127ACDA3AEEE6023D274A /* EjectifyApp.swift in Sources */,
+				48B127ACDA3AEEE6023D274A /* EjectitApp.swift in Sources */,
 				D313A38DAD9A49C47F8602B5 /* MenuBarContentView.swift in Sources */,
 				9538C2EF51E624DF67ACB1E3 /* Preferences.swift in Sources */,
 				7A2548776291824D53E2D850 /* SleepWatcher.swift in Sources */,
@@ -161,16 +161,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Ejectify/Ejectify.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Ejectit/Ejectit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Ejectify/Info.plist;
+				INFOPLIST_FILE = Ejectit/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Ejectit;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexwesterlund.Ejectify;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexwesterlund.Ejectit;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.9;
 			};
@@ -236,16 +238,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Ejectify/Ejectify.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Ejectit/Ejectit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Ejectify/Info.plist;
+				INFOPLIST_FILE = Ejectit/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Ejectit;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexwesterlund.Ejectify;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexwesterlund.Ejectit;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.9;
 			};
@@ -317,7 +321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		152A6D92410A57E89BA1ABF9 /* Build configuration list for PBXProject "Ejectify" */ = {
+		152A6D92410A57E89BA1ABF9 /* Build configuration list for PBXProject "Ejectit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB309CFBBF7027E2C5DDC7D4 /* Debug */,
@@ -326,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		665A4B4CE0BBEAD126F3839C /* Build configuration list for PBXNativeTarget "Ejectify" */ = {
+		665A4B4CE0BBEAD126F3839C /* Build configuration list for PBXNativeTarget "Ejectit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC57A70CCB0AA4E9295586E0 /* Debug */,

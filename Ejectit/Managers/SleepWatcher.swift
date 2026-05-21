@@ -8,8 +8,29 @@ enum SleepEvent {
     case screenDidWake
 }
 
+// File-level free function required — Swift cannot use capturing closures as C function pointers.
+private func ioKitPowerCallback(
+    _ context: UnsafeMutableRawPointer?,
+    _ service: io_service_t,
+    _ messageType: UInt32,
+    _ messageArgument: UnsafeMutableRawPointer?
+) {
+    guard let ctx = context else { return }
+    let watcher = Unmanaged<SleepWatcher>.fromOpaque(ctx).takeUnretainedValue()
+    // kIOMessageSystemWillSleep / kIOMessageSystemHasPoweredOn are C macros not bridged to Swift.
+    switch messageType {
+    case 0xe0000280: // kIOMessageSystemWillSleep
+        watcher.continuation?.yield(.systemWillSleep)
+        IOAllowPowerChange(watcher.rootPort, Int(bitPattern: messageArgument))
+    case 0xe0000300: // kIOMessageSystemHasPoweredOn
+        watcher.continuation?.yield(.systemDidWake)
+    default:
+        IOAllowPowerChange(watcher.rootPort, Int(bitPattern: messageArgument))
+    }
+}
+
 final class SleepWatcher {
-    private var continuation: AsyncStream<SleepEvent>.Continuation?
+    fileprivate var continuation: AsyncStream<SleepEvent>.Continuation?
     private var notifyPort: IONotificationPortRef?
     private var notifier: io_object_t = 0
     private var observers: [NSObjectProtocol] = []
@@ -34,30 +55,7 @@ final class SleepWatcher {
 
     private func startIOKit() {
         let context = Unmanaged.passUnretained(self).toOpaque()
-
-        func callback(
-            _ context: UnsafeMutableRawPointer?,
-            _ service: io_service_t,
-            _ messageType: UInt32,
-            _ messageArgument: UnsafeMutableRawPointer?
-        ) {
-            guard let ctx = context else { return }
-            let watcher = Unmanaged<SleepWatcher>.fromOpaque(ctx).takeUnretainedValue()
-            switch messageType {
-            case UInt32(kIOMessageSystemWillSleep):
-                watcher.continuation?.yield(.systemWillSleep)
-                IOAllowPowerChange(watcher.rootPort, Int(bitPattern: messageArgument))
-            case UInt32(kIOMessageSystemHasPoweredOn):
-                watcher.continuation?.yield(.systemDidWake)
-            default:
-                IOAllowPowerChange(watcher.rootPort, Int(bitPattern: messageArgument))
-            }
-        }
-
-        rootPort = IORegisterForSystemPower(
-            context, &notifyPort, callback, &notifier
-        )
-
+        rootPort = IORegisterForSystemPower(context, &notifyPort, ioKitPowerCallback, &notifier)
         if let port = notifyPort {
             CFRunLoopAddSource(
                 CFRunLoopGetMain(),

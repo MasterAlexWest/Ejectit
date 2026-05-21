@@ -11,28 +11,22 @@ struct Volume: Identifiable, Hashable {
 
 func mountedExternalVolumes() -> [Volume] {
     guard let urls = FileManager.default.mountedVolumeURLs(
-        includingResourceValuesForKeys: [
-            .volumeIsInternalKey,
-            .volumeIsRemovableKey,
-            .volumeIsEjectableKey,
-            .volumeLocalizedNameKey
-        ],
+        includingResourceValuesForKeys: [.volumeIsInternalKey, .volumeLocalizedNameKey],
         options: .skipHiddenVolumes
     ) else { return [] }
 
     return urls.compactMap { url -> Volume? in
         guard let resources = try? url.resourceValues(forKeys: [
             .volumeIsInternalKey,
-            .volumeIsRemovableKey,
-            .volumeIsEjectableKey,
             .volumeLocalizedNameKey
         ]) else { return nil }
 
-        let isInternal = resources.volumeIsInternal ?? true
-        let isRemovable = resources.volumeIsRemovable ?? false
-        let isEjectable = resources.volumeIsEjectable ?? false
+        // Default to non-internal when the key is unreadable — better to show an extra
+        // drive than silently miss one. BSD name presence is the real gate: if DiskArbitration
+        // can resolve a BSD name the OS considers it a manageable block device.
+        let isInternal = resources.volumeIsInternal ?? false
 
-        guard !isInternal && (isRemovable || isEjectable) else { return nil }
+        guard !isInternal else { return nil }
 
         let name = resources.volumeLocalizedName ?? url.lastPathComponent
         guard let bsd = bsdName(for: url) else { return nil }

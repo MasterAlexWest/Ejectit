@@ -1,11 +1,11 @@
 import SwiftUI
 
 @main
-struct EjectifyApp: App {
+struct EjectitApp: App {
     @StateObject private var driveManager = DriveManager()
 
     var body: some Scene {
-        MenuBarExtra("Ejectify", systemImage: "eject.circle.fill") {
+        MenuBarExtra("Ejectit", systemImage: "eject.circle.fill") {
             MenuBarContentView()
                 .environmentObject(driveManager)
         }
